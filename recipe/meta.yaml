@@ -13,15 +13,20 @@ build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
+  entry_points:
+    - flower-client = flwr.client:run_client
+    - flower-driver-api = flwr.server:run_driver_api
+    - flower-fleet-api = flwr.server:run_fleet_api
+    - flower-server = flwr.server:run_server
 
 requirements:
   host:
     - pip
-    - poetry-core >=1.0.0
+    - poetry-core >=1.4.0
     - python >=3.7,<4.0
   run:
     - python >=3.7,<4.0
-    - grpcio >=1.43.0,<2.0.0
+    - grpcio >=1.48.2,<2.0.0,!=1.52.0
     - iterators >=0.0.2,<0.0.3
     - numpy >=1.21.0,<2.0.0
     - protobuf >=3.19.0,<4.0.0
@@ -32,6 +37,10 @@ test:
     - flwr
   commands:
     - pip check
+    - flower-client --help
+    - flower-driver-api --help
+    - flower-fleet-api --help
+    - flower-server --help
   requires:
     - pip
 
