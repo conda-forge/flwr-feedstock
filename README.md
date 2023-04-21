@@ -1,11 +1,11 @@
-About flwr
-==========
+About flwr-feedstock
+====================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/flwr-feedstock/blob/main/LICENSE.txt)
 
 Home: https://flower.dev
 
 Package license: Apache-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/flwr-feedstock/blob/main/LICENSE.txt)
 
 Summary: Flower - A Friendly Federated Learning Framework
 
