@@ -29,7 +29,7 @@ requirements:
     - grpcio >1.49.1 #>=1.48.2  # ,<2.0.0,!=1.52.0
     - iterators >=0.0.2,<0.0.3
     - numpy # >=1.21.0,<2.0.0
-    - protobuf >=3.19.0,<4.0.0
+    - protobuf # >=3.19.0,<4.0.0
     - importlib-metadata >=4.0.0,<5.0.0
 
 test:
