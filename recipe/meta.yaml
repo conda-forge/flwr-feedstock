@@ -1,5 +1,5 @@
 {% set name = "flwr" %}
-{% set version = "1.5.0" %}
+{% set version = "1.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/flwr-{{ version }}.tar.gz
-  sha256: a251a9532ccc9617efc616f2ae404534e51d580396ef0aa023a51668f752d969
+  sha256: 17556a345ab8145c0ba17ef1e24d2ee848d0a78ae62dc8dc80e7eddcb0b73503
 
 build:
   noarch: python
@@ -23,15 +23,16 @@ requirements:
   host:
     - pip
     - poetry-core >=1.4.0
-    - python >=3.7,<4.0
+    - python >=3.8,<4.0
   run:
     # There is some snafu with grpcio version availability on Conda, removing some pinning and hoping for the best...
-    - python >=3.7,<4.0
-    - grpcio >1.49.1 #>=1.48.2  # ,<2.0.0,!=1.52.0
-    - iterators >=0.0.2,<0.0.3
+    - python >=3.8,<4.0
     - numpy # >=1.21.0,<2.0.0
+    - grpcio >1.49.1 #>=1.48.2  # ,<2.0.0,!=1.52.0
     - protobuf # >=3.19.0,<4.0.0
-    - importlib-metadata >=4.0.0,<5.0.0
+    - cryptography >=41.0.2,<42.0.0
+    - pycryptodome >=3.18.0,<4.0.0
+    - iterators >=0.0.2,<0.0.3
 
 test:
   imports:
