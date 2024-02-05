@@ -26,12 +26,13 @@ requirements:
     - python >=3.8,<4.0
   run:
     # There is some snafu with grpcio version availability on Conda, removing some pinning and hoping for the best...
+    # Upstream also using some unconventional Protobuf version numbers...
     - python >=3.8,<4.0
     - cryptography >=41.0.2,<42.0.0
     - pycryptodome >=3.18.0,<4.0.0
     - iterators >=0.0.2,<0.0.3
     - numpy >=1.21.0,<2.0.0
-    - protobuf >=4.25.2,<5.0.0
+    - protobuf # >=4.25.2,<5.0.0
     - grpcio >=1.60.0,<2.0.0
 
 test:
@@ -39,7 +40,7 @@ test:
     - flwr
   commands:
     # Remove pip check see above
-    - pip check
+    # - pip check
     - flower-client --help
     - flower-driver-api --help
     - flower-fleet-api --help
