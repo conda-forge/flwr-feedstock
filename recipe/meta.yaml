@@ -49,8 +49,8 @@ test:
     - pip
 
 about:
-  home: https://flower.dev
-  doc_url: https://flower.dev/docs/
+  home: https://flower.ai
+  doc_url: https://flower.ai/docs/
   dev_url: https://github.com/adap/flower
   summary: Flower - A Friendly Federated Learning Framework
   license: Apache-2.0
