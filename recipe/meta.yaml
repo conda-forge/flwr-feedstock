@@ -1,5 +1,5 @@
 {% set name = "flwr" %}
-{% set version = "1.7.0" %}
+{% set version = "1.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,17 +7,20 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/flwr-{{ version }}.tar.gz
-  sha256: 8c2c63068038fd7bd2f704079a7710195c500408d010d291662e6ca018936d21
+  sha256: a9084426a6804b0185cc06e7b5dad27b94787f694f825ef6cd86539dd697261c
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
   entry_points:
-    - flower-client = flwr.client:run_client
+    - flwr = flwr.cli.app:app
     - flower-driver-api = flwr.server:run_driver_api
     - flower-fleet-api = flwr.server:run_fleet_api
-    - flower-server = flwr.server:run_server
+    - flower-superlink-api = flwr.server:run_superlink
+    - flower-client-app = flwr.client:run_client_app
+    - flower-server-app = flwr.server:run_server_app
+    - flower-simulation = flwr.simulation:run_simulation_from_cli
 
 requirements:
   host:
@@ -28,12 +31,14 @@ requirements:
     # There is some snafu with grpcio version availability on Conda, removing some pinning and hoping for the best...
     # Upstream also using some unconventional Protobuf version numbers...
     - python >=3.8,<4.0
-    - cryptography >=41.0.2,<42.0.0
+    - numpy >=1.21.0,<2.0.0
+    - grpcio >=1.60.0,<2.0.0
+    - protobuf # >=4.25.2,<5.0.0
+    - cryptography >=42.0.4,<43.0.0
     - pycryptodome >=3.18.0,<4.0.0
     - iterators >=0.0.2,<0.0.3
-    - numpy >=1.21.0,<2.0.0
-    - protobuf # >=4.25.2,<5.0.0
-    - grpcio >=1.60.0,<2.0.0
+    - typer >=0.9.0,<0.10.0
+    - tomli >=2.0.1,<3.0.0
 
 test:
   imports:
@@ -41,10 +46,13 @@ test:
   commands:
     # Remove pip check see above
     # - pip check
-    - flower-client --help
+    - flwr --help
     - flower-driver-api --help
     - flower-fleet-api --help
-    - flower-server --help
+    - flower-superlink --help
+    - flower-client-app --help
+    - flower-server-app --help
+    - flower-simulation --help
   requires:
     - pip
 
