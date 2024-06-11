@@ -20,7 +20,7 @@ build:
     - flower-superlink-api = flwr.server:run_superlink
     - flower-client-app = flwr.client:run_client_app
     - flower-server-app = flwr.server:run_server_app
-    - flower-simulation = flwr.simulation:run_simulation_from_cli
+    - flower-simulation = flwr.simulation.run_simulation:run_simulation_from_cli
 
 requirements:
   host:
@@ -56,6 +56,7 @@ test:
     - flower-simulation --help
   requires:
     - pip
+    - ray-core
 
 about:
   home: https://flower.ai
