@@ -15,12 +15,13 @@ build:
   number: 0
   entry_points:
     - flwr = flwr.cli.app:app
-    - flower-superlink = flwr.server:run_superlink
-    - flower-superexec = flwr.superexec:run_superexec
-    - flower-supernode = flwr.client:run_supernode
-    - flower-client-app = flwr.client:run_client_app
-    - flower-server-app = flwr.server:run_server_app
+    - flower-superlink = flwr.server.app:run_superlink
+    - flower-superexec = flwr.superexec.app:run_superexec
+    - flower-supernode = flwr.client.supernode.app:run_supernode
+    - flower-client-app = flwr.client.supernode:run_client_app
+    - flower-server-app = flwr.server.run_serverapp:run_server_app
     - flower-simulation = flwr.simulation.run_simulation:run_simulation_from_cli
+    - flwr-clientapp = flwr.client.clientapp:flwr_clientapp
 
 requirements:
   host:
@@ -32,7 +33,7 @@ requirements:
     # Upstream also using some unconventional Protobuf version numbers...
     - python >=3.8,<4.0
     - numpy >=1.21.0,<2.0.0
-    - grpcio >=1.60.0,<2.0.0,!=1.64.2,!=1.65.1
+    - grpcio >=1.60.0,<2.0.0,!=1.64.2,!=1.65.1,!=1.65.2,!=1.65.4
     - protobuf # >=4.25.2,<5.0.0
     - cryptography >=42.0.4,<43.0.0
     - pycryptodome >=3.18.0,<4.0.0
@@ -55,6 +56,7 @@ test:
     - flower-client-app --help
     - flower-server-app --help
     - flower-simulation --help
+    - flwr-clientapp --help
   requires:
     - pip
     - ray-core
