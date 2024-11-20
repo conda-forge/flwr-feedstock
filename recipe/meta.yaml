@@ -53,6 +53,7 @@ test:
     # - pip check
     - flwr --help
     - flower-superlink --help
+    # Skip running superexec as it generates an INFO log
     - flower-superexec --help
     - flower-supernode --help
     - flower-client-app --help
