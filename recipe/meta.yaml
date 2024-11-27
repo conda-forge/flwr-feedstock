@@ -1,13 +1,13 @@
 {% set name = "flwr" %}
-{% set version = "1.13.0" %}
+{% set version = "1.13.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/flwr-{{ version }}.tar.gz
-  sha256: 84964bc97835868f08689eda1ece298259bfe057b921737cb58b50f487f0ce74
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/flwr-{{ version }}.tar.gz
+  sha256: 09aa9762999820deaa0f36d368d0628d9f873731b7ba3f6ee63ad272fbefda03
 
 build:
   noarch: python
@@ -27,11 +27,11 @@ requirements:
   host:
     - pip
     - poetry-core >=1.4.0
-    - python >=3.9,<4.0
+    - python {{ python_min }}
   run:
     # There is some snafu with grpcio version availability on Conda, removing some pinning and hoping for the best...
     # Upstream also using some unconventional Protobuf version numbers...
-    - python >=3.9,<4.0
+    - python >={{ python_min }}
     - numpy >=1.26.0,<3.0.0
     - grpcio >=1.60.0,<2.0.0,!=1.64.2,<=1.64.3
     - protobuf # >=4.25.2,<5.0.0
@@ -63,6 +63,7 @@ test:
   requires:
     - pip
     - ray-core
+    - python {{ python_min }}
 
 about:
   home: https://flower.ai
