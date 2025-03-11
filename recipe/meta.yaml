@@ -1,5 +1,5 @@
 {% set name = "flwr" %}
-{% set version = "1.15.2" %}
+{% set version = "1.16.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/flwr-{{ version }}.tar.gz
-  sha256: eba27f4ec0d67e07e61ba12a14735256ac6456b28ce38e56bf2b25cd4e7c477d
+  sha256: f0f2428867f577d1750d47b8d9a66215bb6cb67326abf2b8e300416b4219da83
 
 build:
   noarch: python
