@@ -1,5 +1,5 @@
 {% set name = "flwr" %}
-{% set version = "1.15.2" %}
+{% set version = "1.16.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/flwr-{{ version }}.tar.gz
-  sha256: eba27f4ec0d67e07e61ba12a14735256ac6456b28ce38e56bf2b25cd4e7c477d
+  sha256: f0f2428867f577d1750d47b8d9a66215bb6cb67326abf2b8e300416b4219da83
 
 build:
   noarch: python
@@ -15,18 +15,17 @@ build:
   number: 0
   entry_points:
     - flwr = flwr.cli.app:app
-    - flower-superexec = flwr.superexec.app:run_superexec
+    - flwr-simulation = flwr.simulation.app:flwr_simulation
     - flower-simulation = flwr.simulation.run_simulation:run_simulation_from_cli
     - flower-superlink = flwr.server.app:run_superlink
     - flower-supernode = flwr.client.supernode.app:run_supernode
-    - flower-server-app = flwr.server.run_serverapp:run_server_app
+    - flwr-server-app = flwr.server.serverapp:flwr_serverapp
     - flwr-clientapp = flwr.client.clientapp:flwr_clientapp
-    - flower-client-app = flwr.client.supernode:run_client_app
 
 requirements:
   host:
     - pip
-    - poetry-core
+    - poetry-core >=1.4.0
     - python {{ python_min }}
   run:
     # There is some snafu with grpcio version availability on Conda, removing some pinning and hoping for the best...
@@ -35,7 +34,7 @@ requirements:
     - numpy >=1.26.0,<3.0.0
     - grpcio >=1.62.3,<2.0.0,!=1.65.0
     - protobuf # >=4.21.6,<5.0.0
-    - cryptography >=43.0.1,<44.0.0
+    - cryptography >=44.0.1,<45.0.0
     - pycryptodome >=3.18.0,<4.0.0
     - iterators >=0.0.2,<0.0.3
     - typer >=0.12.5,<0.13.0
@@ -54,13 +53,11 @@ test:
     # Remove pip check see above
     # - pip check
     - flwr --help
-    - flower-superlink --help
-    # Skip running superexec as it generates an INFO log
-    # - flower-superexec --help
-    - flower-supernode --help
-    - flower-client-app --help
-    - flower-server-app --help
     - flower-simulation --help
+    - flwr-simulation --help
+    - flower-superlink --help
+    - flower-supernode --help
+    - flwr-server-app --help
     - flwr-clientapp --help
   requires:
     - pip
