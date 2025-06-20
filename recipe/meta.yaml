@@ -17,9 +17,10 @@ build:
     - flwr = flwr.cli.app:app
     - flwr-simulation = flwr.simulation.app:flwr_simulation
     - flower-simulation = flwr.simulation.run_simulation:run_simulation_from_cli
-    - flower-supernode = flwr.client.supernode.app:run_supernode
+    - flower-superlink = flwr.server.app:run_superlink
+    - flower-supernode = flwr.supernode.cli:flower_supernode
     - flwr-server-app = flwr.server.serverapp:flwr_serverapp
-    - flwr-clientapp = flwr.client.clientapp:flwr_clientapp
+    - flwr-clientapp = flwr.supernode.cli:flwr_clientapp
 
 requirements:
   host:
@@ -54,6 +55,7 @@ test:
     - flwr --help
     - flower-simulation --help
     - flwr-simulation --help
+    - flower-superlink --help
     - flower-supernode --help
     - flwr-server-app --help
     - flwr-clientapp --help
