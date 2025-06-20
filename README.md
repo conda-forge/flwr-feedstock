@@ -3,7 +3,7 @@ About flwr-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/flwr-feedstock/blob/main/LICENSE.txt)
 
-Home: https://flower.ai
+Home: https://flower.ai/
 
 Package license: Apache-2.0
 
