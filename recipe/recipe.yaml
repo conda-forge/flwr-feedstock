@@ -49,7 +49,9 @@ requirements:
     - rich >=13.5.0,<14.0.0
     - pyyaml >=6.0.2,<7.0.0
     - requests >=2.31.0,<3.0.0
-    - click <8.2.0
+    - click >=8.0.0,<9.0.0
+    - sqlalchemy >=2.0.45,<3.0.0
+    - alembic >=1.18.1,<2.0.0
 
 tests:
   - python:
