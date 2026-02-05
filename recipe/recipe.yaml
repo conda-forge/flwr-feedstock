@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: flwr
-  version: "1.25.0"
+  version: "1.26.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/flwr-${{ version }}.tar.gz
-  sha256: fe5c9efd4ade6529583deb2927cadc5a6f3b15524e4c1fdc2521c3f24c80ebb8
+  sha256: 11efb7d9527a9afb34d0f5edadef4bb4c8dde66fb701767ebbe20a5091bf30a2
 
 build:
   number: 0
@@ -49,7 +49,9 @@ requirements:
     - rich >=13.5.0,<14.0.0
     - pyyaml >=6.0.2,<7.0.0
     - requests >=2.31.0,<3.0.0
-    - click <8.2.0
+    - click >=8.0.0,<9.0.0
+    - sqlalchemy >=2.0.45,<3.0.0
+    - alembic >=1.18.1,<2.0.0
 
 tests:
   - python:
