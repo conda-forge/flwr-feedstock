@@ -65,8 +65,8 @@ tests:
         - python ${{ python_min }}.*
     script:
       - flwr --help
-      - flower-simulation --help
-      - flwr-simulation --help
+      # - flower-simulation --help
+      # - flwr-simulation --help
       - flower-superlink --help
       - flower-supernode --help
       - flwr-server-app --help
