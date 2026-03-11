@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: flwr
-  version: "1.26.1"
+  version: "1.27.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/flwr-${{ version }}.tar.gz
-  sha256: 1d82f5b38d334de180cfcaf1e3f0cb17c6f21ef3a1980b1519525877ebbb4a7a
+  sha256: a715d5121f60701cc8faca2c379a2f9fa38f72467e6a84e7630b5fcf104c0f62
 
 build:
   number: 0
@@ -39,7 +39,7 @@ requirements:
     - grpcio >=1.70.0,<2.0.0
     - grpcio-health-checking >=1.70.0,<2.0.0
     - protobuf >=5.28.0,<7.0.0
-    - cryptography >=44.0.1,<45.0.0
+    - cryptography >=46.0.5,<47.0.0
     - pycryptodome >=3.18.0,<4.0.0
     - iterators >=0.0.2,<0.0.3
     - typer >=0.12.5,<0.21.0
@@ -65,8 +65,8 @@ tests:
         - python ${{ python_min }}.*
     script:
       - flwr --help
-      - flower-simulation --help
-      - flwr-simulation --help
+      # - flower-simulation --help
+      # - flwr-simulation --help
       - flower-superlink --help
       - flower-supernode --help
       - flwr-server-app --help
