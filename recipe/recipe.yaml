@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: flwr
-  version: "1.27.0"
+  version: "1.28.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/flwr-${{ version }}.tar.gz
-  sha256: a715d5121f60701cc8faca2c379a2f9fa38f72467e6a84e7630b5fcf104c0f62
+  sha256: 72e7fed8b9486da22b1afeabc6df989133c60370efbbc324b3853c9122a8515a
 
 build:
   number: 0
