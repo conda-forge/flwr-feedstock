@@ -29,7 +29,7 @@ build:
 requirements:
   host:
     - pip
-    - poetry-core >=2.1.3
+    - uv-build >=0.11.15,<0.12
     - python ${{ python_min }}.*
   run:
     # There is some snafu with grpcio version availability on Conda, removing some pinning and hoping for the best...
