@@ -21,11 +21,14 @@ build:
     entry_points:
       - flwr = flwr.cli.app:app
       - flwr-simulation = flwr.simulation.app:flwr_simulation
-      - flower-simulation = flwr.simulation.run_simulation:run_simulation_from_cli
-      - flower-superlink = flwr.server.app:run_superlink
+      - flower-superlink = flwr.superlink.cli:flower_superlink
       - flower-supernode = flwr.supernode.cli:flower_supernode
-      - flwr-server-app = flwr.server.serverapp:flwr_serverapp
+      - flower-superexec = flwr.supercore.cli:flower_superexec
+      - flwr-serverapp = flwr.superlink.cli:flwr_serverapp
       - flwr-clientapp = flwr.supernode.cli:flwr_clientapp
+      - flwr-agentapp = flwr.supercore.cli:flwr_agentapp
+      - flwr-model = flwr.supercore.cli:flwr_model
+      - flwr-connector = flwr.supercore.cli:flwr_connector
 
 requirements:
   host:
@@ -76,12 +79,15 @@ tests:
         - python ${{ python_min }}.*
     script:
       - flwr --help
-      # - flower-simulation --help
-      # - flwr-simulation --help
+      - flwr-simulation --help
       - flower-superlink --help
       - flower-supernode --help
-      - flwr-server-app --help
+      - flower-superexec --help
+      - flwr-serverapp --help
       - flwr-clientapp --help
+      - flwr-agentapp --help
+      - flwr-model --help
+      - flwr-connector --help
 
 about:
   summary: Flower - A Friendly Federated Learning Framework
