@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: flwr
-  version: "1.42.0"
+  version: "1.43.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/flwr-${{ version }}.tar.gz
-  sha256: 12b005e4c5083b1b0c74d66c95baf8f376078d86ef9ff1b4cac32afe5544b5f2
+  sha256: 561535404083855f27e3e1753bcd06c45b7eb6836106f4e4ef790f9372fe1771
 
 build:
   number: 0
@@ -26,7 +26,6 @@ build:
       - flwr-serverapp = flwr.superlink.cli:flwr_serverapp
       - flwr-clientapp = flwr.supernode.cli:flwr_clientapp
       - flwr-agentapp = flwr.supercore.cli:flwr_agentapp
-      - flwr-model = flwr.supercore.cli:flwr_model
       - flwr-connector = flwr.supercore.cli:flwr_connector
 
 requirements:
@@ -87,7 +86,6 @@ tests:
       - flwr-serverapp --help
       - flwr-clientapp --help
       - flwr-agentapp --help
-      - flwr-model --help
       - flwr-connector --help
 
 about:
