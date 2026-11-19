@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: flwr
-  version: "1.43.0"
+  version: "1.44.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/flwr-${{ version }}.tar.gz
-  sha256: 561535404083855f27e3e1753bcd06c45b7eb6836106f4e4ef790f9372fe1771
+  sha256: b1a20b5d09b57518f5e2e8e02fa973069f29aa94dc4bfa42cf2641a3b9c50ac4
 
 build:
   number: 0
@@ -55,7 +55,7 @@ requirements:
     - requests >=2.33.0,<3.0.0
     - httpx >=0.28.1,<1.0.0
     - click >=8.0.0,<9.0.0
-    - packaging >=24.0,<26.0
+    - packaging >=24.0,<27.0
     - sqlalchemy >=2.0.45,<3.0.0
     - alembic >=1.18.1,<2.0.0
     - uvicorn-standard >=0.49.0,<0.50.0
